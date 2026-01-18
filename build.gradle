@@ -1,0 +1,36 @@
+// build.gradle - Versión para OFFLINE COMPLETO
+buildscript {
+    repositories {
+        // DESHABILITAR TODOS los repositorios remotos
+        // NO usar google() ni mavenCentral()
+        
+        // Solo repositorios LOCALES
+        flatDir {
+            dirs 'libs'
+            dirs 'C:/Android/gradle-cache'
+        }
+        
+        // Repositorio de archivos plano en el SDK
+        flatDir {
+            dirs 'C:/Android/SDK/tools/lib'
+        }
+    }
+    
+    dependencies {
+        // OPCIÓN 1: Plugin MUY antiguo (probablemente incluido)
+        classpath fileTree(dir: 'gradle-plugins', include: '*.jar'))
+        
+    }
+}
+
+allprojects {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

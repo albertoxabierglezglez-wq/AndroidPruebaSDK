@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+build/
+app/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Android
+*.apk
+*.ap_
+*.aab
+*.aab~
+*.keystore
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
+local.properties
+
+# Sistema
+.DS_Store
+Thumbs.db
