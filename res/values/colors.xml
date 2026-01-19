@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Colores principales (igual que tu HTML) -->
     <color name="primary_gold">#D4AF37</color>
@@ -33,7 +33,7 @@
     <color name="transparent_40">#66000000</color>
     <color name="transparent_50">#80000000</color>
     
-    <!-- Específicos para redes -->
+    <!-- EspecÃ­ficos para redes -->
     <color name="bsc_20">#33F3BA2F</color>
     <color name="eth_20">#336978FF</color>
     <color name="success_20">#3310b981</color>

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.axgg.walletmultired">
 
-    <!-- Permisos para la aplicación -->
+    <!-- Permisos para la aplicaciÃ³n -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
@@ -12,7 +12,7 @@
     <!-- Para copiar al portapapeles -->
     <uses-permission android:name="android.permission.CLIPBOARD_SERVICE" />
     
-    <!-- Orientación vertical -->
+    <!-- OrientaciÃ³n vertical -->
     <uses-feature android:name="android.hardware.screen.portrait" 
         android:required="false" />
 

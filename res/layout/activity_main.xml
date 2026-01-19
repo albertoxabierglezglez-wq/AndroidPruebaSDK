@@ -1,5 +1,4 @@
-  
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -27,7 +26,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Pantalla de configuración (inicialmente visible) -->
+            <!-- Pantalla de configuraciÃ³n (inicialmente visible) -->
             <LinearLayout
                 android:id="@+id/setupLayout"
                 android:layout_width="match_parent"
@@ -35,7 +34,7 @@
                 android:orientation="vertical"
                 android:visibility="visible">
 
-                <!-- Card de configuración -->
+                <!-- Card de configuraciÃ³n -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -55,12 +54,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="👛"
+                            android:text="ðŸ‘›"
                             android:textSize="48sp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginBottom="16dp" />
 
-                        <!-- Título -->
+                        <!-- TÃ­tulo -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -71,7 +70,7 @@
                             android:gravity="center"
                             android:layout_marginBottom="8dp" />
 
-                        <!-- Descripción -->
+                        <!-- DescripciÃ³n -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -115,7 +114,7 @@
 
                         </LinearLayout>
 
-                        <!-- Botón Crear Wallets -->
+                        <!-- BotÃ³n Crear Wallets -->
                         <Button
                             android:id="@+id/createWalletBtn"
                             style="@style/ButtonGold"
@@ -124,7 +123,7 @@
                             android:text="@string/create_wallets"
                             android:layout_marginBottom="12dp" />
 
-                        <!-- Botón Importar Wallets -->
+                        <!-- BotÃ³n Importar Wallets -->
                         <Button
                             android:id="@+id/importWalletBtn"
                             style="@style/ButtonSecondary"
@@ -132,7 +131,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/import_wallets" />
 
-                        <!-- Información -->
+                        <!-- InformaciÃ³n -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -177,7 +176,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Ξ"
+                            android:text="Îž"
                             android:textColor="@color/primary_gold"
                             android:textSize="20sp" />
 
@@ -192,7 +191,7 @@
 
                     </LinearLayout>
 
-                    <!-- Estado de conexión -->
+                    <!-- Estado de conexiÃ³n -->
                     <TextView
                         android:id="@+id/connectionStatus"
                         android:layout_width="wrap_content"
@@ -251,7 +250,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="📊"
+                            android:text="ðŸ“Š"
                             android:textSize="32sp"
                             android:paddingStart="16dp" />
 
@@ -427,7 +426,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Ξ"
+                                    android:text="Îž"
                                     android:textSize="24sp"
                                     android:textColor="#80000000"
                                     android:paddingStart="16dp" />
@@ -447,7 +446,7 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="24dp">
 
-                    <!-- Botón Enviar -->
+                    <!-- BotÃ³n Enviar -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/sendBtn"
                         android:layout_width="0dp"
@@ -470,7 +469,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="✈️"
+                                android:text="âœˆï¸"
                                 android:textSize="24sp"
                                 android:textColor="@color/primary_gold" />
 
@@ -487,7 +486,7 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Botón Recibir -->
+                    <!-- BotÃ³n Recibir -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/receiveBtn"
                         android:layout_width="0dp"
@@ -511,7 +510,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="📱"
+                                android:text="ðŸ“±"
                                 android:textSize="24sp"
                                 android:textColor="@color/success" />
 
@@ -528,7 +527,7 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Botón Backup -->
+                    <!-- BotÃ³n Backup -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/backupBtn"
                         android:layout_width="0dp"
@@ -552,7 +551,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="🛡️"
+                                android:text="ðŸ›¡ï¸"
                                 android:textSize="24sp"
                                 android:textColor="#8B5CF6" />
 
@@ -569,7 +568,7 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Botón Desconectar -->
+                    <!-- BotÃ³n Desconectar -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/disconnectBtn"
                         android:layout_width="0dp"
@@ -592,7 +591,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="🚪"
+                                android:text="ðŸšª"
                                 android:textSize="24sp"
                                 android:textColor="@color/danger" />
 
@@ -660,7 +659,7 @@
                             android:orientation="vertical"
                             android:layout_marginTop="16dp">
 
-                            <!-- Estado vacío (inicial) -->
+                            <!-- Estado vacÃ­o (inicial) -->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -671,7 +670,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="💱"
+                                    android:text="ðŸ’±"
                                     android:textSize="48sp" />
 
                                 <TextView
