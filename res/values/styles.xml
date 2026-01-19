@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tema principal - usa tema nativo de Android -->
+    <!-- Tema principal - usa tema nativo Holo de Android -->
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
-        <!-- Colores bÃ¡sicos -->
         <item name="android:colorPrimary">#3F51B5</item>
         <item name="android:colorPrimaryDark">#303F9F</item>
         <item name="android:colorAccent">#FF4081</item>
@@ -10,20 +9,34 @@
         <item name="android:windowNoTitle">false</item>
     </style>
     
-    <!-- Tema para diÃ¡logos - nativo -->
+    <!-- Tema para diálogos -->
     <style name="DialogTheme" parent="@android:style/Theme.Holo.Light.Dialog">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">false</item>
     </style>
     
-    <!-- Estilo para botones - nativo -->
+    <!-- Estilos para botones referenciados en el layout -->
+    <style name="ButtonGold">
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">#FFD700</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="ButtonSecondary">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#4A4A4A</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <!-- Estilos básicos para la app -->
     <style name="WalletButton" parent="@android:style/Widget.Holo.Button">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:background">#4CAF50</item>
         <item name="android:padding">12dp</item>
     </style>
     
-    <!-- BotÃ³n alternativo -->
     <style name="WalletButtonSecondary" parent="@android:style/Widget.Holo.Button">
         <item name="android:textColor">#333333</item>
         <item name="android:background">#E0E0E0</item>

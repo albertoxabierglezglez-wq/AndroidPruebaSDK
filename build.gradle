@@ -1,1 +1,61 @@
   
+// build.gradle
+// CONFIGURACIÓN COMPATIBLE CON JDK 8 Y OFFLINE
+
+buildscript {
+    repositories {
+        // Repositorio OFFLINE: apunta a tu carpeta local con librerías
+        flatDir {
+            dirs 'tools/lib'
+        }
+    }
+    dependencies {
+        // Plugin de Gradle compatible con JDK 8
+        classpath 'com.android.tools.build:gradle:4.2.2'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    // ¡CONFIGURACIÓN CLAVE! Usa JDK 1.8 (tu versión)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.axgg.walletmultired"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Configuración para compilar OFFLINE
+    repositories {
+        flatDir {
+            dirs 'tools/lib'
+        }
+    }
+}
+
+dependencies {
+    // Dependencias OFFLINE. Asegúrate de tener estos JARs en 'tools/lib/'
+    // implementation name: 'appcompat-v7-28.0.0', ext: 'jar'
+    // implementation name: 'constraint-layout-1.1.3', ext: 'jar'
+    
+    // NOTA: Con los cambios en styles.xml (usando temas Holo),
+    // es posible que no necesites las librerías de compatibilidad.
+    // Si la compilación falla pidiendo AppCompat, entonces sí necesitarás los JARs.
+}
