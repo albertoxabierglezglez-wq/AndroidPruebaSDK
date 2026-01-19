@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores principales (igual que tu HTML) -->
+    <color name="primary_gold">#D4AF37</color>
+    <color name="gold_light">#F7EF8A</color>
+    <color name="gold_dark">#B8860B</color>
+    <color name="gold_darker">#8B6914</color>
+    
+    <!-- Fondos -->
+    <color name="bg_dark">#0F0F0F</color>
+    <color name="bg_card">#1A1A1A</color>
+    <color name="bg_dark_gradient">#2A1A1F</color>
+    
+    <!-- Textos -->
+    <color name="text_light">#F5F5F5</color>
+    <color name="text_gray">#A0A0A0</color>
+    <color name="text_dark">#0F0F0F</color>
+    
+    <!-- Estados -->
+    <color name="success">#10b981</color>
+    <color name="warning">#f59e0b</color>
+    <color name="danger">#ef4444</color>
+    <color name="info">#3b82f6</color>
+    
+    <!-- Redes -->
+    <color name="bsc_color">#F3BA2F</color>
+    <color name="eth_color">#6978FF</color>
+    <color name="base_color">#0052FF</color>
+    
+    <!-- Transparencias -->
+    <color name="transparent_20">#33000000</color>
+    <color name="transparent_30">#4D000000</color>
+    <color name="transparent_40">#66000000</color>
+    <color name="transparent_50">#80000000</color>
+    
+    <!-- Específicos para redes -->
+    <color name="bsc_20">#33F3BA2F</color>
+    <color name="eth_20">#336978FF</color>
+    <color name="success_20">#3310b981</color>
+    <color name="warning_20">#33f59e0b</color>
+    <color name="danger_20">#33ef4444</color>
+    <color name="gold_20">#33D4AF37</color>
+    
+</resources>
