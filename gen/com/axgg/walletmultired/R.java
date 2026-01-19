@@ -11,47 +11,47 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int base_color=0x7f050010;
-        public static final int bg_card=0x7f050005;
+        public static final int base_color=0x7f040010;
+        public static final int bg_card=0x7f040005;
         /**  Fondos 
          */
-        public static final int bg_dark=0x7f050004;
-        public static final int bg_dark_gradient=0x7f050006;
+        public static final int bg_dark=0x7f040004;
+        public static final int bg_dark_gradient=0x7f040006;
         /**  EspecÃ­ficos para redes 
          */
-        public static final int bsc_20=0x7f050015;
+        public static final int bsc_20=0x7f040015;
         /**  Redes 
          */
-        public static final int bsc_color=0x7f05000e;
-        public static final int danger=0x7f05000c;
-        public static final int danger_20=0x7f050019;
-        public static final int eth_20=0x7f050016;
-        public static final int eth_color=0x7f05000f;
-        public static final int gold_20=0x7f05001a;
-        public static final int gold_dark=0x7f050002;
-        public static final int gold_darker=0x7f050003;
-        public static final int gold_light=0x7f050001;
-        public static final int info=0x7f05000d;
+        public static final int bsc_color=0x7f04000e;
+        public static final int danger=0x7f04000c;
+        public static final int danger_20=0x7f040019;
+        public static final int eth_20=0x7f040016;
+        public static final int eth_color=0x7f04000f;
+        public static final int gold_20=0x7f04001a;
+        public static final int gold_dark=0x7f040002;
+        public static final int gold_darker=0x7f040003;
+        public static final int gold_light=0x7f040001;
+        public static final int info=0x7f04000d;
         /**  Colores principales (igual que tu HTML) 
          */
-        public static final int primary_gold=0x7f050000;
+        public static final int primary_gold=0x7f040000;
         /**  Estados 
          */
-        public static final int success=0x7f05000a;
-        public static final int success_20=0x7f050017;
-        public static final int text_dark=0x7f050009;
-        public static final int text_gray=0x7f050008;
+        public static final int success=0x7f04000a;
+        public static final int success_20=0x7f040017;
+        public static final int text_dark=0x7f040009;
+        public static final int text_gray=0x7f040008;
         /**  Textos 
          */
-        public static final int text_light=0x7f050007;
+        public static final int text_light=0x7f040007;
         /**  Transparencias 
          */
-        public static final int transparent_20=0x7f050011;
-        public static final int transparent_30=0x7f050012;
-        public static final int transparent_40=0x7f050013;
-        public static final int transparent_50=0x7f050014;
-        public static final int warning=0x7f05000b;
-        public static final int warning_20=0x7f050018;
+        public static final int transparent_20=0x7f040011;
+        public static final int transparent_30=0x7f040012;
+        public static final int transparent_40=0x7f040013;
+        public static final int transparent_50=0x7f040014;
+        public static final int warning=0x7f04000b;
+        public static final int warning_20=0x7f040018;
     }
     public static final class drawable {
         public static final int badge_background_bsc=0x7f020000;
@@ -62,95 +62,92 @@ public final class R {
         public static final int network_indicator_background=0x7f020005;
     }
     public static final class id {
-        public static final int address_text=0x7f08000d;
-        public static final int backup_button=0x7f08000c;
-        public static final int btn_backup=0x7f080006;
-        public static final int btn_create=0x7f080000;
-        public static final int btn_disconnect=0x7f080007;
-        public static final int btn_import=0x7f080001;
-        public static final int btn_receive=0x7f080005;
-        public static final int btn_send=0x7f080004;
-        public static final int cancel_button=0x7f08000b;
-        public static final int confirm_password_edit=0x7f08000a;
-        public static final int copy_button=0x7f08000e;
-        public static final int mnemonic_text=0x7f080008;
-        public static final int password_edit=0x7f080009;
-        public static final int share_button=0x7f08000f;
-        public static final int txt_balance=0x7f080003;
-        public static final int txt_status=0x7f080002;
+        public static final int address_text=0x7f07000d;
+        public static final int backup_button=0x7f07000c;
+        public static final int btn_backup=0x7f070006;
+        public static final int btn_create=0x7f070000;
+        public static final int btn_disconnect=0x7f070007;
+        public static final int btn_import=0x7f070001;
+        public static final int btn_receive=0x7f070005;
+        public static final int btn_send=0x7f070004;
+        public static final int cancel_button=0x7f07000b;
+        public static final int confirm_password_edit=0x7f07000a;
+        public static final int copy_button=0x7f07000e;
+        public static final int mnemonic_text=0x7f070008;
+        public static final int password_edit=0x7f070009;
+        public static final int share_button=0x7f07000f;
+        public static final int txt_balance=0x7f070003;
+        public static final int txt_status=0x7f070002;
     }
     public static final class layout {
-        public static final int activity_main=0x7f040000;
-        public static final int dialog_backup=0x7f040001;
-        public static final int dialog_receive=0x7f040002;
-    }
-    public static final class mipmap {
-        public static final int ic_launcher=0x7f030000;
+        public static final int activity_main=0x7f030000;
+        public static final int dialog_backup=0x7f030001;
+        public static final int dialog_receive=0x7f030002;
     }
     public static final class string {
-        public static final int app_description=0x7f060001;
+        public static final int app_description=0x7f050001;
         /**  App Basics 
          */
-        public static final int app_name=0x7f060000;
-        public static final int backup=0x7f06000e;
-        public static final int backup_required=0x7f060016;
-        public static final int backup_wallet=0x7f06001d;
-        public static final int bsc_balance=0x7f060009;
-        public static final int cancel=0x7f060021;
-        public static final int confirm=0x7f060020;
-        public static final int copied_to_clipboard=0x7f060018;
-        public static final int create_wallet=0x7f060019;
+        public static final int app_name=0x7f050000;
+        public static final int backup=0x7f05000e;
+        public static final int backup_required=0x7f050016;
+        public static final int backup_wallet=0x7f05001d;
+        public static final int bsc_balance=0x7f050009;
+        public static final int cancel=0x7f050021;
+        public static final int confirm=0x7f050020;
+        public static final int copied_to_clipboard=0x7f050018;
+        public static final int create_wallet=0x7f050019;
         /**  Setup & Actions 
          */
-        public static final int create_wallets=0x7f060004;
-        public static final int disconnect=0x7f06000f;
-        public static final int enter_mnemonic=0x7f06001f;
-        public static final int eth_balance=0x7f06000a;
-        public static final int first_transaction=0x7f060012;
-        public static final int import_wallets=0x7f060005;
-        public static final int invalid_mnemonic=0x7f060017;
-        public static final int logout=0x7f06001e;
+        public static final int create_wallets=0x7f050004;
+        public static final int disconnect=0x7f05000f;
+        public static final int enter_mnemonic=0x7f05001f;
+        public static final int eth_balance=0x7f05000a;
+        public static final int first_transaction=0x7f050012;
+        public static final int import_wallets=0x7f050005;
+        public static final int invalid_mnemonic=0x7f050017;
+        public static final int logout=0x7f05001e;
         /**  Network Names 
          */
-        public static final int network_bsc=0x7f060002;
-        public static final int network_eth=0x7f060003;
-        public static final int no_transactions=0x7f060011;
-        public static final int not_connected=0x7f06000b;
-        public static final int receive=0x7f06000d;
-        public static final int receive_funds=0x7f06001b;
-        public static final int restore_wallet=0x7f06001a;
+        public static final int network_bsc=0x7f050002;
+        public static final int network_eth=0x7f050003;
+        public static final int no_transactions=0x7f050011;
+        public static final int not_connected=0x7f05000b;
+        public static final int receive=0x7f05000d;
+        public static final int receive_funds=0x7f05001b;
+        public static final int restore_wallet=0x7f05001a;
         /**  Main Actions 
          */
-        public static final int send=0x7f06000c;
-        public static final int send_funds=0x7f06001c;
-        public static final int setup_info=0x7f060006;
+        public static final int send=0x7f05000c;
+        public static final int send_funds=0x7f05001c;
+        public static final int setup_info=0x7f050006;
         /**  Status 
          */
-        public static final int status_disconnected=0x7f060007;
+        public static final int status_disconnected=0x7f050007;
         /**  Original Strings (mantener compatibilidad) 
          */
-        public static final int title_activity_main=0x7f060013;
-        public static final int total_balance=0x7f060008;
+        public static final int title_activity_main=0x7f050013;
+        public static final int total_balance=0x7f050008;
         /**  Transactions 
          */
-        public static final int transaction_history=0x7f060010;
-        public static final int wallet_created=0x7f060014;
-        public static final int wallet_restored=0x7f060015;
+        public static final int transaction_history=0x7f050010;
+        public static final int wallet_created=0x7f050014;
+        public static final int wallet_restored=0x7f050015;
     }
     public static final class style {
         /**  Tema principal - usa tema nativo Holo de Android 
          */
-        public static final int AppTheme=0x7f070000;
+        public static final int AppTheme=0x7f060000;
         /**  Estilos para botones referenciados en el layout 
          */
-        public static final int ButtonGold=0x7f070002;
-        public static final int ButtonSecondary=0x7f070003;
+        public static final int ButtonGold=0x7f060002;
+        public static final int ButtonSecondary=0x7f060003;
         /**  Tema para diálogos 
          */
-        public static final int DialogTheme=0x7f070001;
+        public static final int DialogTheme=0x7f060001;
         /**  Estilos básicos para la app 
          */
-        public static final int WalletButton=0x7f070004;
-        public static final int WalletButtonSecondary=0x7f070005;
+        public static final int WalletButton=0x7f060004;
+        public static final int WalletButtonSecondary=0x7f060005;
     }
 }

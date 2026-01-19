@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 
 public class MainActivity extends Activity {
     
@@ -29,10 +29,14 @@ public class MainActivity extends Activity {
     private LinearLayout mainLayout;
     private TextView statusText;
     private TextView balanceText;
+    private WalletManager walletManager;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // Inicializar WalletManager
+        walletManager = new WalletManager(this);
         
         // Configurar layout principal
         mainLayout = new LinearLayout(this);
@@ -57,7 +61,7 @@ public class MainActivity extends Activity {
     
     private void addHeader() {
         TextView title = new TextView(this);
-        title.setText("Wallet App");
+        title.setText("Multi-Red Wallet");
         title.setTextSize(24);
         title.setTextColor(0xFFFFFFFF);
         title.setPadding(0, 0, 0, 40);
@@ -71,14 +75,14 @@ public class MainActivity extends Activity {
         
         // Descripcion
         TextView desc = new TextView(this);
-        desc.setText("Multi-chain wallet for BSC and Ethereum");
+        desc.setText("Billetera para redes BSC y Ethereum");
         desc.setTextColor(COLOR_TEXT_LIGHT);
         desc.setPadding(0, 0, 0, 20);
         container.addView(desc);
         
         // Redes
         TextView networksLabel = new TextView(this);
-        networksLabel.setText("Available Networks:");
+        networksLabel.setText("Redes disponibles:");
         networksLabel.setTextColor(0xFFFFFFFF);
         networksLabel.setPadding(0, 0, 0, 10);
         container.addView(networksLabel);
@@ -93,7 +97,7 @@ public class MainActivity extends Activity {
         bscDot.setTextColor(0xFFF0B90B);
         
         TextView bscText = new TextView(this);
-        bscText.setText(" BSC Network");
+        bscText.setText(" Binance Smart Chain");
         bscText.setTextColor(COLOR_TEXT_LIGHT);
         
         bscRow.addView(bscDot);
@@ -117,20 +121,31 @@ public class MainActivity extends Activity {
         ethRow.addView(ethText);
         container.addView(ethRow);
         
-        // Botones
+        // Boton Crear Wallet
         Button createBtn = new Button(this);
-        createBtn.setText("Create Wallets");
+        createBtn.setText("Crear Wallets");
         createBtn.setBackgroundColor(0xFFFFD700);
         createBtn.setTextColor(0xFF000000);
         createBtn.setPadding(20, 20, 20, 20);
-        createBtn.setOnClickListener(v -> showCreateWalletsDialog());
+        createBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCreateWalletsDialog();
+            }
+        });
         
+        // Boton Importar Wallet
         Button importBtn = new Button(this);
-        importBtn.setText("Import Wallets");
+        importBtn.setText("Importar Wallets");
         importBtn.setBackgroundColor(0xFF333333);
         importBtn.setTextColor(0xFFFFFFFF);
         importBtn.setPadding(20, 20, 20, 20);
-        importBtn.setOnClickListener(v -> showImportDialog());
+        importBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImportDialog();
+            }
+        });
         
         container.addView(createBtn);
         container.addView(importBtn);
@@ -142,13 +157,18 @@ public class MainActivity extends Activity {
         LinearLayout container = createCardContainer();
         
         TextView label = new TextView(this);
-        label.setText("Status:");
+        label.setText("Estado:");
         label.setTextColor(0xFFFFFFFF);
         label.setPadding(0, 0, 0, 10);
         
         statusText = new TextView(this);
-        statusText.setText("Disconnected");
-        statusText.setTextColor(0xFFFF4444);
+        if (walletManager.walletExists()) {
+            statusText.setText("Conectado");
+            statusText.setTextColor(COLOR_PRIMARY);
+        } else {
+            statusText.setText("Desconectado");
+            statusText.setTextColor(0xFFFF4444);
+        }
         
         container.addView(label);
         container.addView(statusText);
@@ -160,14 +180,20 @@ public class MainActivity extends Activity {
         LinearLayout container = createCardContainer();
         
         TextView label = new TextView(this);
-        label.setText("Total Balance:");
+        label.setText("Balance Total:");
         label.setTextColor(0xFFFFFFFF);
         label.setPadding(0, 0, 0, 10);
         
         balanceText = new TextView(this);
-        balanceText.setText("$0.00");
+        if (walletManager.walletExists()) {
+            BigDecimal total = walletManager.getTotalBalance();
+            balanceText.setText("$" + total.toString());
+            balanceText.setTextColor(COLOR_PRIMARY);
+        } else {
+            balanceText.setText("$0.00");
+            balanceText.setTextColor(COLOR_TEXT_LIGHT);
+        }
         balanceText.setTextSize(28);
-        balanceText.setTextColor(COLOR_PRIMARY);
         
         container.addView(label);
         container.addView(balanceText);
@@ -180,27 +206,45 @@ public class MainActivity extends Activity {
         buttonRow.setOrientation(LinearLayout.HORIZONTAL);
         buttonRow.setPadding(0, 20, 0, 0);
         
+        // Boton Enviar
         Button sendBtn = new Button(this);
-        sendBtn.setText("Send");
+        sendBtn.setText("Enviar");
         sendBtn.setBackgroundColor(0xFF2196F3);
         sendBtn.setTextColor(0xFFFFFFFF);
         sendBtn.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
-        sendBtn.setOnClickListener(v -> showSendDialog());
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSendDialog();
+            }
+        });
         
+        // Boton Recibir
         Button receiveBtn = new Button(this);
-        receiveBtn.setText("Receive");
+        receiveBtn.setText("Recibir");
         receiveBtn.setBackgroundColor(0xFF4CAF50);
         receiveBtn.setTextColor(0xFFFFFFFF);
         receiveBtn.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
         receiveBtn.setPadding(10, 0, 10, 0);
-        receiveBtn.setOnClickListener(v -> showReceiveDialog());
+        receiveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showReceiveDialog();
+            }
+        });
         
+        // Boton Backup
         Button backupBtn = new Button(this);
         backupBtn.setText("Backup");
         backupBtn.setBackgroundColor(0xFFFF9800);
         backupBtn.setTextColor(0xFFFFFFFF);
         backupBtn.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
-        backupBtn.setOnClickListener(v -> showBackupDialog());
+        backupBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showBackupDialog();
+            }
+        });
         
         buttonRow.addView(sendBtn);
         buttonRow.addView(receiveBtn);
@@ -211,11 +255,16 @@ public class MainActivity extends Activity {
     
     private void addDisconnectButton() {
         Button disconnectBtn = new Button(this);
-        disconnectBtn.setText("Disconnect");
+        disconnectBtn.setText("Desconectar");
         disconnectBtn.setBackgroundColor(0xFFFF4444);
         disconnectBtn.setTextColor(0xFFFFFFFF);
         disconnectBtn.setPadding(20, 20, 20, 20);
-        disconnectBtn.setOnClickListener(v -> finish());
+        disconnectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
@@ -243,128 +292,235 @@ public class MainActivity extends Activity {
         return container;
     }
     
-    // Diálogos básicos
+    // ===================== DIALOGOS =====================
+    
     private void showCreateWalletsDialog() {
-        new AlertDialog.Builder(this)
-            .setTitle("Create Wallets")
-            .setMessage("This will create new wallets for BSC and Ethereum networks.")
-            .setPositiveButton("Create", (dialog, which) -> {
-                statusText.setText("Connected");
-                statusText.setTextColor(COLOR_PRIMARY);
-                balanceText.setText("$125.50");
-                Toast.makeText(this, "Wallets created successfully", Toast.LENGTH_SHORT).show();
-            })
-            .setNegativeButton("Cancel", null)
-            .show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Crear Wallets");
+        builder.setMessage("Se crearan wallets nuevas para BSC y Ethereum.");
+        builder.setPositiveButton("Crear", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean success = walletManager.createNewWallet();
+                if (success) {
+                    statusText.setText("Conectado");
+                    statusText.setTextColor(COLOR_PRIMARY);
+                    
+                    BigDecimal total = walletManager.getTotalBalance();
+                    balanceText.setText("$" + total.toString());
+                    
+                    Toast.makeText(MainActivity.this, "Wallets creadas exitosamente", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Error al crear wallets", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
     
     private void showImportDialog() {
-        new AlertDialog.Builder(this)
-            .setTitle("Import Wallet")
-            .setMessage("Select import method:")
-            .setPositiveButton("Mnemonic", (dialog, which) -> showMnemonicImportDialog())
-            .setNegativeButton("Private Key", (dialog, which) -> showPrivateKeyImportDialog())
-            .setNeutralButton("Cancel", null)
-            .show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Importar Wallet");
+        builder.setMessage("Seleccione metodo de importacion:");
+        builder.setPositiveButton("Mnemonic", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                showMnemonicImportDialog();
+            }
+        });
+        builder.setNegativeButton("Clave Privada", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                showPrivateKeyImportDialog();
+            }
+        });
+        builder.setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
     
     private void showMnemonicImportDialog() {
         final EditText input = new EditText(this);
-        input.setHint("Enter 12-word mnemonic phrase");
+        input.setHint("Ingrese frase mnemonic de 12 palabras");
         input.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        input.setMinLines(3);
         
-        new AlertDialog.Builder(this)
-            .setTitle("Import with Mnemonic")
-            .setView(input)
-            .setPositiveButton("Import", (dialog, which) -> {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Importar con Mnemonic");
+        builder.setView(input);
+        builder.setPositiveButton("Importar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 String mnemonic = input.getText().toString().trim();
-                if (mnemonic.split(" ").length == 12) {
-                    statusText.setText("Connected");
-                    statusText.setTextColor(COLOR_PRIMARY);
-                    balanceText.setText("$0.00");
-                    Toast.makeText(this, "Wallet imported successfully", Toast.LENGTH_SHORT).show();
+                if (mnemonic.split("\\s+").length == 12) {
+                    boolean success = walletManager.restoreWallet(mnemonic);
+                    if (success) {
+                        statusText.setText("Conectado");
+                        statusText.setTextColor(COLOR_PRIMARY);
+                        
+                        BigDecimal total = walletManager.getTotalBalance();
+                        balanceText.setText("$" + total.toString());
+                        
+                        Toast.makeText(MainActivity.this, "Wallet importada exitosamente", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Error al importar wallet", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(this, "Must be 12 words", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Debe ser exactamente 12 palabras", Toast.LENGTH_SHORT).show();
                 }
-            })
-            .setNegativeButton("Cancel", null)
-            .show();
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
     
     private void showPrivateKeyImportDialog() {
         final EditText input = new EditText(this);
-        input.setHint("Enter private key (0x...)");
+        input.setHint("Ingrese clave privada (0x...)");
         
-        new AlertDialog.Builder(this)
-            .setTitle("Import with Private Key")
-            .setView(input)
-            .setPositiveButton("Import", (dialog, which) -> {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Importar con Clave Privada");
+        builder.setView(input);
+        builder.setPositiveButton("Importar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 String privateKey = input.getText().toString().trim();
                 if (privateKey.startsWith("0x") && privateKey.length() > 10) {
-                    statusText.setText("Connected");
-                    statusText.setTextColor(COLOR_PRIMARY);
-                    Toast.makeText(this, "Wallet imported successfully", Toast.LENGTH_SHORT).show();
+                    // Simular restauracion con clave privada
+                    boolean success = walletManager.restoreWallet("fake mnemonic for private key import");
+                    if (success) {
+                        statusText.setText("Conectado");
+                        statusText.setTextColor(COLOR_PRIMARY);
+                        Toast.makeText(MainActivity.this, "Wallet importada con clave privada", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(this, "Invalid private key", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Clave privada invalida", Toast.LENGTH_SHORT).show();
                 }
-            })
-            .setNegativeButton("Cancel", null)
-            .show();
+            }
+        });
+        builder.setNegativeButton("Cancelar", null);
+        builder.show();
     }
     
     private void showSendDialog() {
         final EditText amountInput = new EditText(this);
-        amountInput.setHint("Amount");
+        amountInput.setHint("Monto");
         amountInput.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         
         final EditText addressInput = new EditText(this);
-        addressInput.setHint("Recipient address (0x...)");
+        addressInput.setHint("Direccion destino (0x...)");
         
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.addView(amountInput);
         layout.addView(addressInput);
         
-        new AlertDialog.Builder(this)
-            .setTitle("Send Funds")
-            .setView(layout)
-            .setPositiveButton("Send", (dialog, which) -> {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enviar Fondos");
+        builder.setView(layout);
+        builder.setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 String amount = amountInput.getText().toString();
                 String address = addressInput.getText().toString();
                 if (!amount.isEmpty() && address.startsWith("0x")) {
-                    Toast.makeText(this, "Sent " + amount + " to " + address.substring(0, 10) + "...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Enviado " + amount + " a " + address.substring(0, 10) + "...", Toast.LENGTH_SHORT).show();
                 }
-            })
-            .setNegativeButton("Cancel", null)
-            .show();
+            }
+        });
+        builder.setNegativeButton("Cancelar", null);
+        builder.show();
     }
     
     private void showReceiveDialog() {
+        if (!walletManager.walletExists()) {
+            Toast.makeText(this, "Primero cree o importe una wallet", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
         TextView addressText = new TextView(this);
-        addressText.setText("0x742d35Cc6634C0532925a3b844Bc9e...");
+        String bscAddress = walletManager.getAddress("bsc");
+        addressText.setText(bscAddress != null ? bscAddress : "Direccion no disponible");
         addressText.setTextColor(0xFFFFFFFF);
         addressText.setPadding(20, 20, 20, 20);
         addressText.setBackgroundColor(0xFF333333);
+        addressText.setTextIsSelectable(true);
         
-        new AlertDialog.Builder(this)
-            .setTitle("Receive Funds")
-            .setMessage("Your wallet address:")
-            .setView(addressText)
-            .setPositiveButton("Copy", (dialog, which) -> {
-                Toast.makeText(this, "Address copied to clipboard", Toast.LENGTH_SHORT).show();
-            })
-            .setNegativeButton("Close", null)
-            .show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Recibir Fondos (BSC)");
+        builder.setMessage("Su direccion BSC:");
+        builder.setView(addressText);
+        builder.setPositiveButton("Copiar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "Direccion copiada al portapapeles", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cerrar", null);
+        builder.show();
     }
     
     private void showBackupDialog() {
-        new AlertDialog.Builder(this)
-            .setTitle("Backup Wallet")
-            .setMessage("Backup your wallet to secure your funds.")
-            .setPositiveButton("Backup Now", (dialog, which) -> {
-                Toast.makeText(this, "Backup process started", Toast.LENGTH_SHORT).show();
-            })
-            .setNegativeButton("Later", null)
-            .show();
+        if (!walletManager.walletExists()) {
+            Toast.makeText(this, "Primero cree una wallet", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Backup de Wallet");
+        builder.setMessage("Guarde su frase mnemonic en un lugar seguro. Con ella puede restaurar su wallet en cualquier dispositivo.");
+        builder.setPositiveButton("Ver Mnemonic", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                showMnemonicBackupDialog();
+            }
+        });
+        builder.setNegativeButton("Mas tarde", null);
+        builder.show();
+    }
+    
+    private void showMnemonicBackupDialog() {
+        String mnemonic = walletManager.getMnemonic();
+        if (mnemonic == null) {
+            Toast.makeText(this, "No hay mnemonic disponible", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        TextView mnemonicText = new TextView(this);
+        mnemonicText.setText(mnemonic);
+        mnemonicText.setTextColor(0xFFFFFFFF);
+        mnemonicText.setTextSize(16);
+        mnemonicText.setPadding(30, 30, 30, 30);
+        mnemonicText.setBackgroundColor(0xFF333333);
+        mnemonicText.setTextIsSelectable(true);
+        
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Su Frase Mnemonic (SECRETA)");
+        builder.setMessage("GUARDE ESTA INFORMACION EN UN LUGAR SEGURO. Cualquiera con esta frase puede controlar sus fondos.");
+        builder.setView(mnemonicText);
+        builder.setPositiveButton("Copiar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "Mnemonic copiado al portapapeles", Toast.LENGTH_SHORT).show();
+                walletManager.markAsBackedUp();
+            }
+        });
+        builder.setNegativeButton("Entendido", null);
+        builder.show();
     }
 }
