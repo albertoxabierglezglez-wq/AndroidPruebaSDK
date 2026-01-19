@@ -36,7 +36,7 @@ echo.
 
 REM 4. Compilar Java
 echo [4/7] Compilando codigo Java...
-javac -d bin -cp "%ANDROID_HOME%\platforms\android-29\android.jar" -sourcepath src;gen src\com\tuapp\wallet\*.java gen\com\tuapp\wallet\R.java
+javac -d bin -cp "%ANDROID_HOME%\platforms\android-29\android.jar" -sourcepath src;gen src\com\axgg\walletmultired\*.java gen\com\axgg\walletmultired\R.java
 if errorlevel 1 (
     echo ERROR compilando Java
     pause
