@@ -1,24 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App Basics -->
     <string name="app_name">Wallet App</string>
-    <string name="title_activity_main">Main Wallet</string>
+    <string name="app_description">Multi-chain wallet for BSC and Ethereum</string>
     
-    <!-- Mensajes -->
+    <!-- Network Names -->
+    <string name="network_bsc">BSC Network</string>
+    <string name="network_eth">Ethereum Network</string>
+    
+    <!-- Setup & Actions -->
+    <string name="create_wallets">Create Wallets</string>
+    <string name="import_wallets">Import Wallets</string>
+    <string name="setup_info">Setup your multi-chain wallet</string>
+    
+    <!-- Status -->
+    <string name="status_disconnected">Disconnected</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="bsc_balance">BSC Balance</string>
+    <string name="eth_balance">ETH Balance</string>
+    <string name="not_connected">Not Connected</string>
+    
+    <!-- Main Actions -->
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="backup">Backup</string>
+    <string name="disconnect">Disconnect</string>
+    
+    <!-- Transactions -->
+    <string name="transaction_history">Transaction History</string>
+    <string name="no_transactions">No transactions yet</string>
+    <string name="first_transaction">Make your first transaction</string>
+    
+    <!-- Original Strings (mantener compatibilidad) -->
+    <string name="title_activity_main">Main Wallet</string>
     <string name="wallet_created">Wallet created successfully</string>
     <string name="wallet_restored">Wallet restored successfully</string>
     <string name="backup_required">Please backup your wallet first</string>
     <string name="invalid_mnemonic">Invalid mnemonic phrase</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
-    
-    <!-- Botones -->
     <string name="create_wallet">Create Wallet</string>
     <string name="restore_wallet">Restore Wallet</string>
     <string name="receive_funds">Receive</string>
     <string name="send_funds">Send</string>
     <string name="backup_wallet">Backup</string>
     <string name="logout">Logout</string>
-    
-    <!-- DiÃ¡logos -->
     <string name="enter_mnemonic">Enter your 12-word mnemonic phrase:</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
