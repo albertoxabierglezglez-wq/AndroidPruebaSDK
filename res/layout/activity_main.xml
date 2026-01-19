@@ -35,7 +35,7 @@
                 android:visibility="visible">
 
                 <!-- Card de configuraciÃ³n -->
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardBackgroundColor="@color/bg_card"
@@ -145,7 +145,7 @@
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -206,7 +206,7 @@
                 </LinearLayout>
 
                 <!-- Card de Balance Total -->
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardBackgroundColor="@color/bg_card"
@@ -256,7 +256,7 @@
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
                 <!-- Grid de balances por red -->
                 <LinearLayout
@@ -266,7 +266,7 @@
                     android:layout_marginBottom="16dp">
 
                     <!-- Card BSC -->
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:id="@+id/bscBalanceCard"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -349,10 +349,10 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                     <!-- Card ETH -->
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:id="@+id/ethBalanceCard"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -435,7 +435,7 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -447,7 +447,7 @@
                     android:layout_marginBottom="24dp">
 
                     <!-- BotÃ³n Enviar -->
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:id="@+id/sendBtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -484,10 +484,10 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                     <!-- BotÃ³n Recibir -->
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:id="@+id/receiveBtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -525,10 +525,10 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                     <!-- BotÃ³n Backup -->
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:id="@+id/backupBtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -566,10 +566,10 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                     <!-- BotÃ³n Desconectar -->
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:id="@+id/disconnectBtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -606,12 +606,12 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <!-- Historial de transacciones -->
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardBackgroundColor="@color/bg_card"
@@ -695,7 +695,7 @@
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -704,3 +704,6 @@
     </ScrollView>
 
 </LinearLayout>
+
+
+
