@@ -2,64 +2,50 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.axgg.walletmultired">
 
-    <!-- Permisos para la aplicaciÃ³n -->
+    <!-- Permisos básicos -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- Para API 29 o inferior, permiso de almacenamiento -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
         android:maxSdkVersion="28" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    <!-- Para copiar al portapapeles -->
-    <uses-permission android:name="android.permission.CLIPBOARD_SERVICE" />
-    
-    <!-- OrientaciÃ³n vertical -->
-    <uses-feature android:name="android.hardware.screen.portrait" 
-        android:required="false" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="Wallet Multi-Red AXGG"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        android:hardwareAccelerated="true">
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
         
-        <!-- Actividad Principal -->
+        <!-- Actividad principal -->
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize">
+            android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         
-        <!-- Actividad para compartir/exportar -->
+        <!-- Actividad para recibir (simplificada) -->
         <activity
-            android:name=".ShareActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.Translucent" />
-            
-        <!-- Servicio para operaciones en segundo plano -->
-        <service
-            android:name=".WalletService"
+            android:name=".ReceiveDialog"
+            android:theme="@android:style/Theme.Dialog"
             android:exported="false" />
             
-        <!-- Proveedor de archivos para backup -->
+        <!-- Actividad para backup (simplificada) -->
+        <activity
+            android:name=".BackupDialog"
+            android:theme="@android:style/Theme.Dialog"
+            android:exported="false" />
+        
+        <!-- Proveedor de archivos (simplificado - elimina la referencia a @xml/file_paths) -->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:authorities="com.axgg.walletmultired.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+            <!-- Se elimina meta-data que referencia @xml/file_paths -->
         </provider>
-        
+
     </application>
 
 </manifest>
