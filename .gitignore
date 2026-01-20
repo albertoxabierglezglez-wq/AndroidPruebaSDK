@@ -1,29 +1,21 @@
-# Gradle
-.gradle/
-build/
-app/build/
-!gradle/wrapper/gradle-wrapper.jar
-
-# Android
+# Archivos de compilación y resultados
+/bin/
+/gen/
+/obj/
 *.apk
-*.ap_
-*.aab
-*.aab~
+*.dex
+log.txt
+debug_log.txt
+
+# Keystores y certificados (NUNCA subir)
 *.keystore
+*.jks
+*.cert
 
-# Archivos temporales
-*.log
-*.tmp
-*.bak
-*.swp
-*~
-
-# IDE
-.vscode/
-.idea/
-*.iml
-local.properties
-
-# Sistema
+# Archivos del sistema
 .DS_Store
 Thumbs.db
+
+# Archivos de IDE
+/.idea/
+*.iml
